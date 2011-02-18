@@ -7,12 +7,6 @@ module MongoMapper
 
 
       # ----------------------------------------------------------------------
-      included do
-      end
-
-
-
-      # ----------------------------------------------------------------------
       module ClassMethods    
       end
 
@@ -20,6 +14,26 @@ module MongoMapper
 
       # ----------------------------------------------------------------------
       module InstanceMethods
+        
+        # don't understand why this is need
+        # remove changed_attribute if it has the same value like the current attribute value
+        
+        def changed_attributes
+          super.delete_if{|k,v| v == __send__(k)}
+        end
+                
+        protected
+        
+        def attribute_method?(attr)
+          super || attributes.keys.include?(attr)
+        end
+                
+      end
+      
+      
+      
+      # ----------------------------------------------------------------------
+      included do
       end
 
     end
