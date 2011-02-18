@@ -4,6 +4,8 @@ $:.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
 require 'mongo_mapper'
 require 'mongo_mapper/plugins/dirty_embedded'
 require 'test/unit'
+require 'shoulda'
+require 'ruby-debug'
 
 
 
