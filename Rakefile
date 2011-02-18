@@ -15,18 +15,18 @@ task :default => :test
 
 desc 'Builds the gem'
 task :build do
-  sh "gem build mongo_mapper_acts_as_list.gemspec"
+  sh "gem build mongo_mapper_dirty_embedded.gemspec"
 end
 
 desc 'Builds and installs the gem'
 task :install => :build do
-  sh "gem install mongo_mapper_acts_as_list-#{MongoMapper::Plugins::ActsAsList::Version}"
+  sh "gem install mongo_mapper_dirty_embedded-#{MongoMapper::Plugins::DirtyEmbedded::Version}"
 end
 
 desc 'Tags version, pushes to remote, and pushes gem'
 task :release => :build do
-  sh "git tag v#{MongoMapper::Plugins::ActsAsList::Version}"
+  sh "git tag v#{MongoMapper::Plugins::DirtyEmbedded::Version}"
   sh "git push origin master"
-  sh "git push origin v#{MongoMapper::Plugins::ActsAsList::Version}"
-  sh "gem push mongo_mapper_acts_as_list-#{MongoMapper::Plugins::ActsAsList::Version}.gem"
+  sh "git push origin v#{MongoMapper::Plugins::DirtyEmbedded::Version}"
+  sh "gem push mongo_mapper_dirty_embedded-#{MongoMapper::Plugins::DirtyEmbedded::Version}.gem"
 end
