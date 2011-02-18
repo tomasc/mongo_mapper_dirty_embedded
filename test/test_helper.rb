@@ -2,7 +2,7 @@ require 'rubygems'
 $:.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
 
 require 'mongo_mapper'
-require 'mongo_mapper/plugins/acts_as_list'
+require 'mongo_mapper/plugins/dirty_embedded'
 require 'test/unit'
 
 
@@ -27,5 +27,5 @@ end
 
 
 MongoMapper.connection = Mongo::Connection.new('127.0.0.1', 27017)
-MongoMapper.database = "mongo_mapper_acts_as_list_test"
+MongoMapper.database = "mongo_mapper_dirty_embedded_test"
 MongoMapper.database.collections.each { |c| c.drop_indexes }
